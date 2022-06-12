@@ -1,0 +1,17 @@
+{
+  "editor.formatOnSave": true,
+  "rust-analyzer.checkOnSave.allFeatures": false,
+  "rust-analyzer.checkOnSave.allTargets": false,
+  "rust-analyzer.checkOnSave.noDefaultFeatures": true,
+  "rust-analyzer.cargo.allFeatures": false,
+  "rust-analyzer.cargo.noDefaultFeatures": true,
+  "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.cargo.target": "thumbv7em-none-eabi",
+  "rust-analyzer.cargo.features": [
+    "nightly",
+  ],
+  "rust-analyzer.imports.granularity.enforce": true,
+  "rust-analyzer.imports.granularity.group": "module",
+  "rust-analyzer.cargo.buildScripts.enable": true,
+  "rust-analyzer.procMacro.attributes.enable": false,
+}

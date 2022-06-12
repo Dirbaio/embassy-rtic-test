@@ -1,0 +1,46 @@
+[package]
+authors = ["Dario Nieuwenhuis <dirbaio@dirbaio.net>"]
+edition = "2021"
+name = "embassy-nrf-examples"
+version = "0.1.0"
+
+[features]
+default = ["nightly"]
+nightly = ["embassy-nrf/nightly", "embassy-nrf/unstable-traits", "embassy-usb", "embassy-usb-serial", "embassy-usb-hid", "embassy-usb-ncm", "embedded-io/async", "embassy-net"]
+
+[dependencies]
+embassy = { version = "0.1.0", features = ["defmt", "defmt-timestamp-uptime", "executor-agnostic"] }
+embassy-nrf = { version = "0.1.0", features = ["defmt", "nrf52840", "time-driver-rtc1", "gpiote", "unstable-pac"] }
+embassy-net = { version = "0.1.0", features = ["defmt", "tcp", "dhcpv4", "medium-ethernet", "pool-16"], optional = true }
+embassy-usb = { version = "0.1.0", features = ["defmt"], optional = true }
+embassy-usb-serial = { version = "0.1.0", features = ["defmt"], optional = true }
+embassy-usb-hid = { version = "0.1.0", features = ["defmt"], optional = true }
+embassy-usb-ncm = { version = "0.1.0", features = ["defmt"], optional = true }
+embedded-io = "0.3.0"
+
+defmt = "0.3"
+defmt-rtt = "0.3"
+
+cortex-m = "0.7.3"
+cortex-m-rt = "0.7.0"
+panic-probe = { version = "0.3", features = ["print-defmt"] }
+futures = { version = "0.3.17", default-features = false, features = ["async-await"] }
+rand = { version = "0.8.4", default-features = false }
+embedded-storage = "0.3.0"
+usbd-hid = "0.5.2"
+serde = { version = "1.0.136", default-features = false }
+
+cortex-m-rtic = "1.1.2"
+systick-monotonic = "1.0.0"
+
+[patch.crates-io]
+
+embassy            = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-nrf        = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-net        = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-usb        = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-usb-serial = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-usb-hid    = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+embassy-usb-ncm    = { git = "https://github.com/embassy-rs/embassy", rev = "fff0a03fe0f9e84209dd40fd8f93790871d03d75" }
+#cortex-m-rtic = { git = "https://github.com/rtic-rs/cortex-m-rtic", branch = "async-2022" }
+cortex-m-rtic = { path = "./cortex-m-rtic" }
